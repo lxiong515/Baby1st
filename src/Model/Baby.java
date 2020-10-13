@@ -21,6 +21,10 @@ public class Baby {
 		super();
 	}
 	
+	public Baby(String string) {
+		super();
+	}
+	
 	public Baby(int babyId, String babyName) {
 		super();
 		this.babyId = babyId;

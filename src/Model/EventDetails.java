@@ -70,6 +70,13 @@ public class EventDetails {
 	public void setBabyId(int babyId) {
 		this.babyId = babyId;
 	}
+	
+	public EventDetails(String eventName, LocalDate eventDate, Baby jim) {
+		super();
+		this.eventName = eventName;
+		this.eventDate = eventDate;
+		//this.babyId = babyId;
+	}
 
 	@Override
 	public String toString() {
