@@ -75,7 +75,16 @@ public class EventDetails {
 		super();
 		this.eventName = eventName;
 		this.eventDate = eventDate;
-		//this.babyId = babyId;
+		//this.babyId = babyId; //need to figure out int ID vs string name
+	}
+
+	public EventDetails(String babyName, String event) {
+		// TODO Auto-generated constructor stub
+		//this constructor is for AddEventServlet
+		super();
+		//this.babyId = babyName;//need to figure out int ID vs string name
+		this.eventName = event;
+		
 	}
 
 	@Override
