@@ -30,6 +30,7 @@
 			<attribute name="maven.artifactId" value="jakarta.persistence"/>
 			<attribute name="maven.version" value="2.2.2"/>
 			<attribute name="maven.scope" value="compile"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>

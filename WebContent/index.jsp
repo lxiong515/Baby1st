@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Track your baby's milestones here!</h1>
-<form action="addEventsServlet" method="post">
+<form action="addEventServlet" method="post">
 Enter the name of your baby:
 <input type="text" name="babyName">
 Enter the milestone:

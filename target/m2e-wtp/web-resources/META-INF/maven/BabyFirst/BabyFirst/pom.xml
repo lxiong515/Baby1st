@@ -45,5 +45,11 @@
   		<artifactId>jstl</artifactId>
   		<version>1.2</version>
   	</dependency>
+  	<dependency>
+  		<groupId>org.hibernate</groupId>
+  		<artifactId>hibernate-entitymanager</artifactId>
+  		<version>6.0.0.Alpha6</version>
+  		<type>pom</type>
+  	</dependency>
   </dependencies>
 </project>
