@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import javax.persistence.AttributeConverter;
 import java.sql.Date;

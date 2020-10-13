@@ -4,7 +4,7 @@
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>Model.Baby</class>
 		<class>Model.EventDetails</class>
-		<class>controller.LocalDateAttributeConverter</class>
+		<class>Controller.LocalDateAttributeConverter</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://babybook.cpcdollqshql.us-east-1.rds.amazonaws.com"/>

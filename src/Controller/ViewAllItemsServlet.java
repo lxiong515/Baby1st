@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.EventDetails;
-
 /**
- * Servlet implementation class AddEventServlet
+ * Servlet implementation class ViewAllItemsServlet
  */
-@WebServlet("/addEventServlet")
-public class AddEventServlet extends HttpServlet {
+@WebServlet("/viewAllItemsServlet")
+public class ViewAllItemsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddEventServlet() {
+    public ViewAllItemsServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +27,17 @@ public class AddEventServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		EventDetailsHelper dao = new EventDetailsHelper();
+		
+		request.setAttribute("allDetails", dao.getEvents());
+		
+		String path ="/event-list.jsp";
+		
+		if(dao.getEvents().isEmpty()) {
+			path = "/index.jsp";
+		}
+		
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
@@ -37,19 +45,7 @@ public class AddEventServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
-		String babyName = request.getParameter("babyName");
-		String event = request.getParameter("milestone");
-		
-		if (babyName.isEmpty() || event.isEmpty() || babyName == null || event == null) {
-			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-		} else {
-			EventDetails ed = new EventDetails(babyName, event);
-			EventDetailsHelper dao = new EventDetailsHelper();
-			dao.insertNewEventDetails(ed);
-
-		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		doGet(request, response);
 	}
 
-	}
 }
