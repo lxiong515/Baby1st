@@ -42,13 +42,13 @@ public class AddEventServlet extends HttpServlet {
 		String event = request.getParameter("milestone");
 		
 		if (babyName.isEmpty() || event.isEmpty() || babyName == null || event == null) {
-			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 		} else {
 			EventDetails ed = new EventDetails(babyName, event);
 			EventDetailsHelper dao = new EventDetailsHelper();
 			dao.insertNewEventDetails(ed);
 
-		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 	}
 
 	}

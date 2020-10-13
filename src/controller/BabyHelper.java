@@ -50,4 +50,14 @@ public class BabyHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
+
+	public void updateBaby(Baby babyToUpdate) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		
+		em.merge(babyToUpdate);
+		em.getTransaction().commit();
+		em.close();
+	}
 }

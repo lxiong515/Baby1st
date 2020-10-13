@@ -7,17 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Model.Baby;
+
 /**
- * Servlet implementation class ViewAllBabiesServlet
+ * Servlet implementation class EditBabyServlet
  */
-@WebServlet("/viewAllBabiesServlet")
-public class ViewAllBabiesServlet extends HttpServlet {
+@WebServlet("/editBabyServlet")
+public class EditBabyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ViewAllBabiesServlet() {
+    public EditBabyServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,16 +29,7 @@ public class ViewAllBabiesServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		BabyHelper dao = new BabyHelper();
-		request.setAttribute("allBabies", dao.showAllBabies());
-		
-		String path = "/babies.jsp";
-		
-		if(dao.showAllBabies().isEmpty()) {
-			path = "/index.html";
-		}
-		
-		getServletContext().getRequestDispatcher(path).forward(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -44,7 +37,18 @@ public class ViewAllBabiesServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		BabyHelper dao = new BabyHelper();
+		
+		String babyName = request.getParameter("babyName");
+		Integer tempId = Integer.parseInt(request.getParameter("babyId"));
+		
+		Baby babyToUpdate = dao.searchForBabyById(tempId);
+		babyToUpdate.setBabyName(babyName);
+		
+		dao.updateBaby(babyToUpdate);
+		
+		getServletContext().getRequestDispatcher("/viewAllBabiesServlet").forward(request, response);
 	}
 
 }

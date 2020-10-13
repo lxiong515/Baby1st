@@ -61,7 +61,7 @@ public class NavigationServlet extends HttpServlet {
 				System.out.println("Forgot to select a baby");
 			}
 		} else if (act.equals("add")) {
-			path = "/index.jsp";
+			path = "/index.html";
 		}
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}

@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ViewAllBabiesServlet
+ * Servlet implementation class AddBabyServlet
  */
-@WebServlet("/viewAllBabiesServlet")
-public class ViewAllBabiesServlet extends HttpServlet {
+@WebServlet("/addBabyServlet")
+public class AddBabyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ViewAllBabiesServlet() {
+    public AddBabyServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,16 +27,7 @@ public class ViewAllBabiesServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		BabyHelper dao = new BabyHelper();
-		request.setAttribute("allBabies", dao.showAllBabies());
-		
-		String path = "/babies.jsp";
-		
-		if(dao.showAllBabies().isEmpty()) {
-			path = "/index.html";
-		}
-		
-		getServletContext().getRequestDispatcher(path).forward(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -44,7 +35,14 @@ public class ViewAllBabiesServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		String babyName = request.getParameter("babyName");
+		
+		Baby b = new Baby(babyName);
+		BabyHelper dao = new BabyHelper();
+		dao.insertBaby(b);
+		
+		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 	}
 
 }

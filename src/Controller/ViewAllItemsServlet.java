@@ -34,7 +34,7 @@ public class ViewAllItemsServlet extends HttpServlet {
 		String path ="/event-list.jsp";
 		
 		if(dao.getEvents().isEmpty()) {
-			path = "/index.jsp";
+			path = "/index.html";
 		}
 		
 		getServletContext().getRequestDispatcher(path).forward(request, response);
