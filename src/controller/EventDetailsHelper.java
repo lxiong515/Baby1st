@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import javax.persistence.Persistence;
 import Model.EventDetails;
 
 public class EventDetailsHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("UserBabyEvents");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Baby1st");
 	
-	public void insertNewEventDetails(EventDetails s) {
+	public void insertEventDetails(EventDetails s) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(s);

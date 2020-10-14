@@ -1,18 +1,19 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import Model.EventDetails;
 
 /**
  * Servlet implementation class AddEventServlet
  */
 @WebServlet("/addEventServlet")
+@MultipartConfig //added to help with errors
 public class AddEventServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -38,15 +39,15 @@ public class AddEventServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		String babyName = request.getParameter("babyName");
-		String event = request.getParameter("milestone");
+		String babyId = request.getParameter("babyId");
+		String event = request.getParameter("event");
 		
-		if (babyName.isEmpty() || event.isEmpty() || babyName == null || event == null) {
+		if (babyId.isEmpty() || event.isEmpty() || babyId == null || event == null) {
 			getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 		} else {
-			EventDetails ed = new EventDetails(babyName, event);
+			EventDetails ed = new EventDetails(babyId, event);
 			EventDetailsHelper dao = new EventDetailsHelper();
-			dao.insertNewEventDetails(ed);
+			dao.insertEventDetails(ed);
 
 		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 	}

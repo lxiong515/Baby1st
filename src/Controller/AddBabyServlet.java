@@ -1,11 +1,14 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import Model.Baby;
+import Model.EventDetails;
 
 /**
  * Servlet implementation class AddBabyServlet
@@ -38,11 +41,15 @@ public class AddBabyServlet extends HttpServlet {
 		//doGet(request, response);
 		String babyName = request.getParameter("babyName");
 		
+		if (babyName.isEmpty() || babyName == null ) {
+			getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		} else {
 		Baby b = new Baby(babyName);
 		BabyHelper dao = new BabyHelper();
 		dao.insertBaby(b);
 		
 		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+	}
 	}
 
 }

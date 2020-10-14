@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.util.List;
 
@@ -6,12 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-
 import Model.Baby;
 
 //package and import statements
 public class BabyHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("UserBabyEvents");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Baby1st");
 	
 	public void insertBaby(Baby b) {
 		EntityManager em = emfactory.createEntityManager();
@@ -23,16 +22,8 @@ public class BabyHelper {
 
 	public List<Baby> showAllBabies(){
 		EntityManager em = emfactory.createEntityManager();
-		List<Baby> allBabies = em.createQuery("SELECT b from Baby b").getResultList();
+		List<Baby> allBabies = em.createQuery("SELECT b FROM Baby b").getResultList();
 		return allBabies;
-	}
-
-	public Baby searchForBabyById(Integer tempId) {
-		EntityManager em = emfactory.createEntityManager();
-		em.getTransaction().begin();
-		Baby found = em.find(Baby.class, tempId);
-		em.close();
-		return found;
 	}
 
 	public void deleteBaby(Baby babyToDelete) {
@@ -50,6 +41,14 @@ public class BabyHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
+	
+	public Baby searchForBabyById(Integer tempId) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Baby found = em.find(Baby.class, tempId);
+		em.close();
+		return found;
+	}
 
 	public void updateBaby(Baby babyToUpdate) {
 		// TODO Auto-generated method stub
@@ -59,5 +58,9 @@ public class BabyHelper {
 		em.merge(babyToUpdate);
 		em.getTransaction().commit();
 		em.close();
+	}
+	
+	public void cleanUp() {
+		emfactory.close();
 	}
 }
