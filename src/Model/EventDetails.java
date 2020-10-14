@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="event_details")
 public class EventDetails {
@@ -78,11 +79,11 @@ public class EventDetails {
 		//this.babyId = babyId; //need to figure out int ID vs string name
 	}
 
-	public EventDetails(String babyName, String event) {
+	public EventDetails(String babyId, String event) {
 		// TODO Auto-generated constructor stub
 		//this constructor is for AddEventServlet
-		super();
-		//this.babyId = babyName;//need to figure out int ID vs string name
+		//super();
+		this.babyId = Integer.parseInt(babyId);
 		this.eventName = event;
 		
 	}

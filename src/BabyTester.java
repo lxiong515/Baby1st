@@ -3,8 +3,8 @@ import java.util.List;
 
 import Model.Baby;
 import Model.EventDetails;
-import Controller.BabyHelper;
-import Controller.EventDetailsHelper;
+import controller.BabyHelper;
+import controller.EventDetailsHelper;
 
 public class BabyTester {
 	

@@ -22,16 +22,5 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/lukex/.m2/repository/org/eclipse/persistence/jakarta.persistence/2.2.2/jakarta.persistence-2.2.2.jar" sourcepath="C:/Users/lukex/.m2/repository/org/eclipse/persistence/jakarta.persistence/2.2.2/jakarta.persistence-2.2.2-sources.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lukex/.m2/repository/org/eclipse/persistence/jakarta.persistence/2.2.2/jakarta.persistence-2.2.2-javadoc.jar!/"/>
-			<attribute name="maven.groupId" value="org.eclipse.persistence"/>
-			<attribute name="maven.artifactId" value="jakarta.persistence"/>
-			<attribute name="maven.version" value="2.2.2"/>
-			<attribute name="maven.scope" value="compile"/>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
