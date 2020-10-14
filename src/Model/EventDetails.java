@@ -26,18 +26,18 @@ public class EventDetails {
 	private LocalDate eventDate;
 	@ManyToOne (cascade=CascadeType.PERSIST)
 	@JoinColumn(name="BABY_ID")
-	private int babyId;
+	private Baby baby;
 	
 	public EventDetails() {
 		super();
 	}
 	
-	public EventDetails(int eventId, String eventName, LocalDate eventDate, int babyId) {
+	public EventDetails(int eventId, String eventName, LocalDate eventDate, Baby baby) {
 		super();
 		this.eventId = eventId;
 		this.eventName = eventName;
 		this.eventDate = eventDate;
-		this.babyId = babyId;
+		this.baby = baby;
 	}
 
 	public int getEventId() {
@@ -64,14 +64,15 @@ public class EventDetails {
 		this.eventDate = eventDate;
 	}
 
-	public int getBabyId() {
-		return babyId;
+	
+	public Baby getBaby() {
+		return baby;
 	}
 
-	public void setBabyId(int babyId) {
-		this.babyId = babyId;
+	public void setBaby(Baby baby) {
+		this.baby = baby;
 	}
-	
+
 	public EventDetails(String eventName, LocalDate eventDate, Baby jim) {
 		super();
 		this.eventName = eventName;
@@ -79,19 +80,19 @@ public class EventDetails {
 		//this.babyId = babyId; //need to figure out int ID vs string name
 	}
 
-	public EventDetails(String babyId, String event) {
-		// TODO Auto-generated constructor stub
-		//this constructor is for AddEventServlet
-		//super();
-		this.babyId = Integer.parseInt(babyId);
-		this.eventName = event;
-		
-	}
+//	public EventDetails(String babyId, String event) {
+//		// TODO Auto-generated constructor stub
+//		//this constructor is for AddEventServlet
+//		//super();
+//		this.babyId = Integer.parseInt(babyId);
+//		this.eventName = event;
+//		
+//	}
 
 	@Override
 	public String toString() {
 		return "EventDetails [eventId=" + eventId + ", eventName=" + eventName + ", eventDate=" + eventDate
-				+ ", babyId=" + babyId + "]";
+				+ ", baby=" + baby + "]";
 	}
 	
 	

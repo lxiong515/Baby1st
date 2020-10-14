@@ -29,6 +29,7 @@ public class Baby {
 	
 	public Baby(String string) {
 		super();
+		this.babyName = string;
 	}
 	
 	public Baby(int babyId, String babyName) {
