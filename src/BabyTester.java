@@ -19,7 +19,7 @@ public class BabyTester {
 		EventDetailsHelper edh = new EventDetailsHelper();
 		EventDetails jimList = new EventDetails("Jim's List", LocalDate.now(), jim);
 		
-		edh.insertNewEventDetails(jimList);
+		//edh.insertNewEventDetails(jimList);
 		
 		List<EventDetails>allLists = edh.getEvents();
 		
