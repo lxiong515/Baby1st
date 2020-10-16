@@ -9,17 +9,19 @@
 <title>Event List</title>
 </head>
 <body>
-<h1>Baby's First Milestones:</h1>
-<p>Your baby's milestones are listed here. You may also add new events below!</p><br />
-<h2>Add An Event</h2>
-	<form action = "addEventServlet" method = "post">
-		Baby ID: <input type = "text" name = "babyId">
-		Event: <input type = "text" name = "event">
-		<input type = "submit" value = "Add Event">
-	</form><br />
-
-	<a href = "viewAllBabiesServlet">View All Babies</a>
-	<a href = "viewAllItemsServlet">View All Events</a>
-	<a href = "addEventServlet">Add An Event</a>
+	<form method = "post" action = "navigationServlet">
+		<table>
+			<c:forEach items = "${requestScope.allDetails}" var = "currentevent">
+			<tr>
+				<td><input type = "radio" name = "id" value = "${currentevent.eventId}"></td>
+				<td>${currentbaby.babyId}</td>
+				<td>${currentbaby.babyName}</td>
+			</tr>
+			</c:forEach>
+		</table>
+		<input type = "submit" value = "edit" name = "doThisToBaby">
+		<input type = "submit" value = "delete" name = "doThisToBaby">
+		<input type = "submit" value = "add" name = "doThisToBaby">
+	</form>
 </body>
 </html>
