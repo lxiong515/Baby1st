@@ -14,7 +14,7 @@
 			<c:forEach items = "${requestScope.allBabies}" var = "currentbaby">
 			<tr>
 				<td><input type = "radio" name = "id" value = "${baby.babyId}"></td>
-				<td>${baby.baby}</td>
+				<td>${baby.babyName}</td>
 			</tr>
 			</c:forEach>
 		</table>
