@@ -10,8 +10,8 @@
 </head>
 <body>
 	<form action = "editBabyServlet" method = "post">
-		Baby Name: <input type = "text" name = "babyName" value = "${babyToEdit.babyName}">
-		<input type = "hidden" name = "id" value = "${babyToEdit.babyId}">
+		Baby Name: <input type = "text" name = "babyName" value = "${babyToUpdate.babyName}">
+		<input type = "hidden" name = "id" value = "${babyToUpdate.babyId}">
 		<input type = "submit" value = "Save Edited Baby">
 	</form>
 </body>

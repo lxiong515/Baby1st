@@ -80,6 +80,11 @@ public class EventDetails {
 		this.baby = baby; 
 	}
 
+	public EventDetails(String eventName) {
+		this.eventName = eventName;
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "EventDetails [eventId=" + eventId + ", eventName=" + eventName + ", eventDate=" + eventDate

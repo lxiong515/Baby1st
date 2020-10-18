@@ -63,4 +63,14 @@ public class BabyHelper {
 	public void cleanUp() {
 		emfactory.close();
 	}
+
+	public void updateBaby(String babyName) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		
+		em.merge(babyName);
+		em.getTransaction().commit();
+		em.close();
+	}
 }

@@ -102,13 +102,15 @@ public class AddEventServlet extends HttpServlet {
 		//LocalDate result = LocalDate.ofInstant(instant, null);
 		
 		if (eventName.isEmpty() || eventName == null ) {
+			//if (eventName.isEmpty() || baby.isEmpty() || eventName == null ) {
 			getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 		} else {
-			EventDetails ed = new EventDetails(eventName, eventDate, baby);
+			EventDetails ed = new EventDetails(eventName);//(eventName, eventDate, baby);
+			//EventDetails ed = new EventDetails(eventName, eventDate, baby);
 			EventDetailsHelper dao = new EventDetailsHelper();
 			dao.insertEventDetails(ed);
 
-		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		getServletContext().getRequestDispatcher("/viewAllItemsServlet").forward(request, response);
 	}
 
 	}

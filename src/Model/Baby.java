@@ -18,11 +18,6 @@ public class Baby {
 	@Column(name="BABY_NAME")
 	private String babyName;
 	
-	/* example for git
-	@OneToMany(mappedBy="baby", cascade = CascadeType.ALL)
-	private List<ListingDetail> listingDetails;
-	*/
-	
 	public Baby() {
 		//super();
 	}
@@ -58,28 +53,6 @@ public class Baby {
 	public String toString() {
 		return "Baby [babyId=" + babyId + ", babyName=" + babyName + "]";
 	}
-	/* git example below
-	public List<ListingDetail> getListingDetails() {
-		return this.listingDetails;
-	}
-
-	public void setListingDetails(List<ListingDetail> listingDetails) {
-		this.listingDetails = listingDetails;
-	}
-
-	public ListingDetail addListingDetail(ListingDetail listingDetail) {
-		getListingDetails().add(listingDetail);
-		listingDetail.setRealtor(this);
-
-		return listingDetail;
-	}
-
-	public ListingDetail removeListingDetail(ListingDetail listingDetail) {
-		getListingDetails().remove(listingDetail);
-		listingDetail.setRealtor(null);
-
-		return listingDetail;
-	}*/
 	
 	
 }
