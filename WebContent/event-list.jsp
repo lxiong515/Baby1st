@@ -9,7 +9,7 @@
 <title>Event List</title>
 </head>
 <body>
-	<form method = "post" action = "navigationServlet">
+	<form method = "post" action = "eventNavigationServlet">
 		<table>
 			<c:forEach items = "${requestScope.allDetails}" var = "eventDetails">
 			<tr>
@@ -20,9 +20,8 @@
 			</tr>
 			</c:forEach>
 		</table>
-		<input type = "submit" value = "edit" name = "doThisToBaby">
-		<input type = "submit" value = "delete" name = "doThisToBaby">
-		<input type = "submit" value = "add" name = "doThisToBaby">
+		<input type = "submit" value = "delete" name = "doThisToEvent">
+		<input type = "submit" value = "add" name = "doThisToEvent">
 	</form>
 </body>
 </html>
