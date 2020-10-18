@@ -19,18 +19,12 @@ public class BabyTester {
 		EventDetailsHelper edh = new EventDetailsHelper();
 		EventDetails jimList = new EventDetails("Jim's List", LocalDate.now(), jim);
 		
-		//edh.insertNewEventDetails(jimList);
-		
 		List<EventDetails>allLists = edh.getEvents();
 		
 		for(EventDetails a: allLists) {
 			System.out.println(a.toString());
 		}
-		/*
-		List<Baby> allBabies = bh.showAllBabies();
-		for(Baby a: allBabies) {
-			System.out.println(a.toString());
-		} */
+
 	}
 
 }

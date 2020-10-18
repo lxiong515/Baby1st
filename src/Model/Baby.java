@@ -19,7 +19,6 @@ public class Baby {
 	private String babyName;
 	
 	public Baby() {
-		//super();
 	}
 	
 	public Baby(String string) {

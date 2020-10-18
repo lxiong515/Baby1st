@@ -37,7 +37,6 @@ public class EventNavigationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
 
 		EventDetailsHelper dao = new EventDetailsHelper();
 		String act = request.getParameter("doThisToEvent");
@@ -58,9 +57,7 @@ public class EventNavigationServlet extends HttpServlet {
 		} else if (act.contentEquals("add")) {
 		 {
 		getServletContext().getRequestDispatcher("/add-event.jsp").forward(request, response);
-		} //finally {
-		//if (act.contentEquals("add")) {
-		//getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		} 
 		} 
 	}
 

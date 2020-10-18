@@ -37,20 +37,6 @@ public class EditBabyServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
-		/*
-		BabyHelper dao = new BabyHelper();
-		
-		String babyName = request.getParameter("babyName");
-		//Integer babyId = Integer.parseInt(request.getParameter("babyId"));
-		//getting error on line 44
-		Baby babyToUpdate = dao.updateBaby(babyName);
-		babyToUpdate.setBabyName(babyName);
-		
-		dao.updateBaby(babyToUpdate);
-		
-		getServletContext().getRequestDispatcher("/viewAllBabiesServlet").forward(request, response);
-	*/
 		BabyHelper dao = new BabyHelper();
 
 		String babyName = request.getParameter("babyName");

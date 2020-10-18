@@ -37,35 +37,6 @@ public class NavigationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
-		/*
-		BabyHelper dao = new BabyHelper();
-		String act = request.getParameter("doThisToBaby");
-		
-		String path = "/viewAllBabiesServlet";
-		
-		if (act.equals("delete")) {
-			try {
-				Integer tempId = Integer.parseInt(request.getParameter("babyId"));
-				Baby babyToDelete = dao.searchForBabyById(tempId);
-				dao.deleteBaby(babyToDelete);
-			} catch (NumberFormatException e) {
-				System.out.println("Forgot to select a baby");
-			}
-		} else if (act.equals("edit")) {
-			try {
-				Integer tempId = Integer.parseInt(request.getParameter("babyId"));
-				Baby babyToEdit = dao.searchForBabyById(tempId);
-				request.setAttribute("babyToEdit", babyToEdit);
-				path = "/edit-baby.jsp";
-			} catch (NumberFormatException e) {
-				System.out.println("Forgot to select a baby");
-			}
-		} else if (act.equals("add")) {
-			path = "/index.html";
-		}
-		getServletContext().getRequestDispatcher(path).forward(request, response);
-	*/
 		BabyHelper dao = new BabyHelper();
 		String act = request.getParameter("doThisToBaby");
 
