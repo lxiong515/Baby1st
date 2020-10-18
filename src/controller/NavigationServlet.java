@@ -38,6 +38,7 @@ public class NavigationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+		/*
 		BabyHelper dao = new BabyHelper();
 		String act = request.getParameter("doThisToBaby");
 		
@@ -64,6 +65,33 @@ public class NavigationServlet extends HttpServlet {
 			path = "/index.html";
 		}
 		getServletContext().getRequestDispatcher(path).forward(request, response);
+	*/
+		BabyHelper dao = new BabyHelper();
+		String act = request.getParameter("doThisToBaby");
+
+		if(act == null) {
+		//no button has been selected
+		getServletContext().getRequestDispatcher("/viewAllBabiesServlet").forward(request, response);
+		} else if (act.contentEquals("delete")) {
+		try {
+		Integer tempId = Integer.parseInt(request.getParameter("id"));
+		Baby babyToDelete = dao.searchForBabyById(tempId);
+		dao.deleteBaby(babyToDelete);
+		} catch (NumberFormatException e) {
+		System.out.println("Forgot to click a button");
+		} finally {
+		getServletContext().getRequestDispatcher("/viewAllBabiesServlet").forward(request, response);
+		}
+		} else if (act.contentEquals("edit")) {
+		try {
+		getServletContext().getRequestDispatcher("/edit-baby.jsp").forward(request, response);
+		} catch (NumberFormatException e) {
+		getServletContext().getRequestDispatcher("/editBabyServlet").forward(request, response);
+		}
+		} else if (act.contentEquals("add")) {
+		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		}
+		
 	}
 
 }
