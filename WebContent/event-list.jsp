@@ -11,11 +11,12 @@
 <body>
 	<form method = "post" action = "navigationServlet">
 		<table>
-			<c:forEach items = "${requestScope.allDetails}" var = "currentevent">
+			<c:forEach items = "${requestScope.allDetails}" var = "eventDetails">
 			<tr>
-				<td><input type = "radio" name = "id" value = "${currentevent.eventId}"></td>
-				<td>${currentbaby.babyId}</td>
-				<td>${currentbaby.babyName}</td>
+				<td><input type = "radio" name = "id" value = "${eventDetails.eventId}"></td>
+				<td>${eventDetails.eventName}</td>
+				<td>${eventDetails.eventDate}</td>
+				<td>${eventDetails.baby}</td>
 			</tr>
 			</c:forEach>
 		</table>

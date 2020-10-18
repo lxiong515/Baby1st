@@ -11,7 +11,7 @@
 <body>
 	<form method = "post" action = "navigationServlet">
 		<table>
-			<c:forEach items = "${requestScope.allBabies}" var = "currentbaby">
+			<c:forEach items = "${requestScope.allBabies}" var = "baby">
 			<tr>
 				<td><input type = "radio" name = "id" value = "${baby.babyId}"></td>
 				<td>${baby.babyName}</td>

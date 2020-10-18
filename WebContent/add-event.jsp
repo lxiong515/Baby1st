@@ -11,13 +11,12 @@
 	<form action = "addEventServlet" method = "post">
 		Event Name: <input type = "text" name = "eventName"><br />
 		Event Date: <input type = "text" name = "month" placeholder = "mm" size = "4"> <input type = "text" name = "day" placeholder = "dd" size = "4">, <input type = "text" name = "year" placeholder = "yyyy" size = "4"><br />
-		Baby: <input type = "text" name = "baby"><br />
+		Baby: <input type = "text" name = "babyName"><br />
 		<table>
 			<c:forEach items = "${requestScope.allBabies}" var = "eventDetails">
 			<tr>
-				<td><input type = "radio" name = "id" value = "${eventDetails.babyId}"></td>
+				<td><input type = "radio" name = "id" value = "${eventDetails.baby}"></td>
 				<td>${eventDetails.eventId}</td>
-				<td>${eventDetails.baby}</td>
 				<td>${eventDetails.eventName}</td>
 				<td>${eventDetails.eventDate}</td>
 			</tr>
