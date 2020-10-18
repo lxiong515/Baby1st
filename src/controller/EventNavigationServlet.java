@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.Baby;
 import Model.EventDetails;
 
 /**
@@ -39,23 +38,31 @@ public class EventNavigationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+
 		EventDetailsHelper dao = new EventDetailsHelper();
 		String act = request.getParameter("doThisToEvent");
-		
-		String path = "/viewAllEventsServlet";
-		
-		if (act.equals("delete")) {
-			try {
-				Integer tempId = Integer.parseInt(request.getParameter("eventId"));
-				EventDetails EventToDelete = dao.searchForEventById(tempId);
-				dao.deleteEvent(EventToDelete);
-			} catch (NumberFormatException e) {
-				System.out.println("Forgot to select an event");
-			}
-		} else if (act.equals("add")) {
-			path = "/addEventServlet";
+
+		if(act == null) {
+		//no button has been selected
+		getServletContext().getRequestDispatcher("/viewAllItemsServlet").forward(request, response);
+		} else if (act.contentEquals("delete")) {
+		try {
+		Integer tempId = Integer.parseInt(request.getParameter("id"));
+		EventDetails listToDelete = dao.searchForEventById(tempId);
+		dao.deleteEvent(listToDelete);
+		} catch (NumberFormatException e) {
+		System.out.println("Forgot to click a button");
+		} finally {
+		getServletContext().getRequestDispatcher("/viewAllItemsServlet").forward(request, response);
 		}
-		getServletContext().getRequestDispatcher(path).forward(request, response);
+		} else if (act.contentEquals("add")) {
+		 {
+		getServletContext().getRequestDispatcher("/add-event.jsp").forward(request, response);
+		} //finally {
+		//if (act.contentEquals("add")) {
+		//getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		} 
 	}
 
+		
 }

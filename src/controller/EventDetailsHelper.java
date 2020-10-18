@@ -7,7 +7,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import Model.Baby;
 import Model.EventDetails;
 
 public class EventDetailsHelper {
@@ -26,32 +25,6 @@ public class EventDetailsHelper {
 		List<EventDetails> allDetails = em.createQuery("SELECT s from EventDetails s").getResultList();
 		return allDetails;
 	}
-/*
-	public  List<EventDetails> showAllItems() {
-		// TODO Auto-generated method stub
-		EntityManager em = emfactory.createEntityManager();
-		
-		List<EventDetails>allItems = em.createNamedQuery("SELECT i from EventDetails i").getResultList();
-		return allItems;
-	}
-	*/
-
-	public void deleteEvent(EventDetails eventToDelete) {
-		// TODO Auto-generated method stub
-		EntityManager em = emfactory.createEntityManager();
-		em.getTransaction().begin();
-		TypedQuery<EventDetails> typedQuery = em.createQuery("select ed from EventDetails ed where ed.eventName = :selectedEventName", EventDetails.class);
-		
-		typedQuery.setParameter("selectedEventName", eventToDelete.getEventName());
-		
-		typedQuery.setMaxResults(1);
-		
-		EventDetails result = typedQuery.getSingleResult();
-		
-		em.remove(result);
-		em.getTransaction().commit();
-		em.close();
-	}
 
 	public EventDetails searchForEventById(Integer tempId) {
 		// TODO Auto-generated method stub
@@ -60,6 +33,26 @@ public class EventDetailsHelper {
 		EventDetails found = em.find(EventDetails.class, tempId);
 		em.close();
 		return found;
+
+	}
+
+	public void deleteEvent(EventDetails eventToDelete) {
+		// TODO Auto-generated method stub
+		
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<EventDetails> typedQuery = em.createQuery("select ed from EventDetails ed where ed.eventName = :selectedEventName", EventDetails.class);
+
+		typedQuery.setParameter("selectedEventName", eventToDelete.getEventName());
+
+		typedQuery.setMaxResults(1);
+
+		EventDetails result = typedQuery.getSingleResult();
+
+		em.remove(result);
+		em.getTransaction().commit();
+		em.close();
+
 	}
 
 }
