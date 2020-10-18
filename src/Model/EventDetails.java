@@ -73,21 +73,12 @@ public class EventDetails {
 		this.baby = baby;
 	}
 
-	public EventDetails(String eventName, LocalDate eventDate, Baby jim) {
+	public EventDetails(String eventName, LocalDate eventDate, Baby baby) {
 		super();
 		this.eventName = eventName;
 		this.eventDate = eventDate;
-		//this.babyId = babyId; //need to figure out int ID vs string name
+		this.baby = baby; 
 	}
-
-//	public EventDetails(String babyId, String event) {
-//		// TODO Auto-generated constructor stub
-//		//this constructor is for AddEventServlet
-//		//super();
-//		this.babyId = Integer.parseInt(babyId);
-//		this.eventName = event;
-//		
-//	}
 
 	@Override
 	public String toString() {

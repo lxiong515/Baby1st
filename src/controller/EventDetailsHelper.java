@@ -21,8 +21,17 @@ public class EventDetailsHelper {
 	
 	public List<EventDetails> getEvents(){
 		EntityManager em = emfactory.createEntityManager();
-		List<EventDetails> allDetails = em.createQuery("SELECT d from EventDetails d").getResultList();
+		List<EventDetails> allDetails = em.createQuery("SELECT s from EventDetails s").getResultList();
 		return allDetails;
 	}
+/*
+	public  List<EventDetails> showAllItems() {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		
+		List<EventDetails>allItems = em.createNamedQuery("SELECT i from EventDetails i").getResultList();
+		return allItems;
+	}
+	*/
 
 }
